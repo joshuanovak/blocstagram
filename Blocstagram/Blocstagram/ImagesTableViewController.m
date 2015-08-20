@@ -38,11 +38,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Images
+
+- (NSArray *)items {
+    return [DataSource sharedInstance].mediaItems;
+    //return self.items;
+}
+
 #pragma mark - Table view data source
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [DataSource sharedInstance].mediaItems.count;
+    return [self items].count;
 }
 
 
@@ -93,7 +100,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        //[self.images removeObjectAtIndex:indexPath.row];  DELETION CODE DOES NOT WORK
+        [self.items removeObjectAtIndex:indexPath.row];  //DELETION CODE DOES NOT WORK
 //    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
 //        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
@@ -103,7 +110,7 @@
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    //[self.images removeObject:[self.images objectAtIndex:fromIndexPath.row]]; DELETION CODE DOES NOT WORK
+    [self.items removeObject:[self.items objectAtIndex:fromIndexPath.row]]; //DELETION CODE DOES NOT WORK
 }
 
 
