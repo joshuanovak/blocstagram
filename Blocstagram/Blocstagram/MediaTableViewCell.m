@@ -112,18 +112,6 @@ static NSParagraphStyle *paragraphStyleRight;
         
         NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
         
-        NSRange commentRange = [baseString rangeOfString:comment.text];
-        if (first == 1) {
-            [oneCommentString addAttribute:NSForegroundColorAttributeName value:firstCommentOrange range:commentRange];
-        }
-        
-        NSRange wholeRange = [baseString rangeOfString:(baseString)];
-        if (first & 1) {
-            [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:wholeRange];
-        }else{
-            [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraphStyleRight range:wholeRange];
-        }
-        
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
         [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
