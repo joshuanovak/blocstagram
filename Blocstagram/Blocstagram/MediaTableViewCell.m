@@ -187,14 +187,17 @@ static NSParagraphStyle *paragraphStyleRight;
 }
 
 + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width {
+    //make a cell
     MediaTableViewCell *layoutCell = [[MediaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
-    
-    layoutCell.frame = CGRectMake(0, 0, width, CGFLOAT_MAX);
     
     layoutCell.mediaItem = mediaItem;
     
-    [layoutCell layoutSubviews];
+    layoutCell.frame = CGRectMake(0, 0, width, CGRectGetHeight(layoutCell.frame));
     
+    [layoutCell setNeedsLayout];
+    [layoutCell layoutIfNeeded];
+    
+    //Get actual height required for the cell
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
 
