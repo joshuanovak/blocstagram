@@ -31,12 +31,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
+    
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Deleting Images
+
+- (void) dealloc{
+    [[DataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (object == [DataSource sharedInstance] && [keyPath isEqualToString:@"mediaItems"]) {
+        //We know mediaItems changed. See what kind of change it is
+        NSKeyValueChange kindOfChange = [change[NSKeyValueChangeKindKey]unsignedIntegerValue];
+        
+        if (kindOfChange == NSKeyValueChangeSetting) {
+            //someone set brand new images array
+            [self.tableView reloadData];
+        } else if (kindOfChange == NSKeyValueChangeInsertion ||
+                   kindOfChange == NSKeyValueChangeRemoval ||
+                   kindOfChange == NSKeyValueChangeReplacement) {
+            //we have an incremental change: inserted, deleted, or replaced images
+            
+            //get a list of the index that changed
+            NSIndexSet *indexSetOfChanges = change[NSKeyValueChangeIndexesKey];
+            
+            // #1 - Convert this NSIndexSet to an NSArray of NSIndexPaths (which is what the table view animation methods require)
+            NSMutableArray *indexPathsThatChanged = [NSMutableArray array];
+            [indexSetOfChanges enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+                NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+                [indexPathsThatChanged addObject:newIndexPath];
+            }];
+            
+            //#2 - Call 'beginupdates' to tell table view we are about to make changes
+            [self.tableView beginUpdates];
+            
+            //tell the table view what the changes are
+            if (kindOfChange == NSKeyValueChangeInsertion) {
+                [self.tableView insertRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+            }else if (kindOfChange == NSKeyValueChangeRemoval) {
+                [self.tableView deleteRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+            }else if (kindOfChange == NSKeyValueChangeReplacement) {
+                [self.tableView reloadRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+
+        }
+    }
 }
 
 #pragma mark - Images
@@ -53,29 +101,8 @@
     return [self items].count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
-//    
-//    static NSInteger imageViewTag = 1234;
-//    //Configure the cell...
-//    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
-//    
-//    if (!imageView) {
-//        //this is a new cell, it doesn't have an image view yet
-//        imageView = [[UIImageView alloc] init];
-//        imageView.contentMode = UIViewContentModeScaleToFill;
-//        
-//        imageView.frame = cell.contentView.bounds;
-//        imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//        
-//        imageView.tag = imageViewTag;
-//        [cell.contentView addSubview:imageView];
-//    }
-//    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-//    imageView.image = item.image;
-    
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     return cell;
@@ -87,14 +114,11 @@
     return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
 }
 
-
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,15 +139,11 @@
     [self.items removeObject:[self.items objectAtIndex:fromIndexPath.row]]; //DELETION CODE DOES NOT WORK
 }
 
-
-
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-
-
 
 /*
 #pragma mark - Navigation
