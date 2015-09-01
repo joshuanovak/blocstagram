@@ -140,6 +140,11 @@
     [_mediaItems replaceObjectAtIndex:index withObject:object];
 }
 
+- (void) deleteMediaItem:(Media *)item {
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+    [mutableArrayWithKVO removeObject:item];
+}
+
 
 
 @end

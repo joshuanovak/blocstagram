@@ -82,6 +82,9 @@
             }else if (kindOfChange == NSKeyValueChangeReplacement) {
                 [self.tableView reloadRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
             }
+            
+            //tell table view that we're done telling changes and to complete the animation
+            [self.tableView endUpdates];
 
         }
     }
@@ -122,15 +125,11 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView beginUpdates];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [self.items removeObjectAtIndex:indexPath.row];  //DELETION CODE DOES NOT WORK
-//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        //delete row from data source
+        Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+        [[DataSource sharedInstance] deleteMediaItem:item];
     }
-    [tableView endUpdates];
 }
 
 
