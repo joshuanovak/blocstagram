@@ -16,5 +16,7 @@
 @property (nonatomic, strong, readonly) NSMutableArray *mediaItems;
 
 - (void) deleteMediaItem:(Media *)item;
+- (void) addMediaItemToTop:(Media *)item;
+- (void) removeObjectFromMediaItemsAtIndex:(NSUInteger)index;
 
 @end

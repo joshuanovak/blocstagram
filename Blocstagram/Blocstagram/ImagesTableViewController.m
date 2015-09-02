@@ -71,6 +71,10 @@
                 [indexPathsThatChanged addObject:newIndexPath];
             }];
             
+            NSMutableArray *firstCellIndexAddedTo = [NSMutableArray array];
+            NSIndexPath *firstCellIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+            [firstCellIndexAddedTo addObject:firstCellIndex];
+            
             //#2 - Call 'beginupdates' to tell table view we are about to make changes
             [self.tableView beginUpdates];
             
@@ -78,7 +82,10 @@
             if (kindOfChange == NSKeyValueChangeInsertion) {
                 [self.tableView insertRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
             }else if (kindOfChange == NSKeyValueChangeRemoval) {
+                
+                //[self.tableView insertRowsAtIndexPaths: firstCellIndexAddedTo withRowAnimation:UITableViewRowAnimationAutomatic];
                 [self.tableView deleteRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+                
             }else if (kindOfChange == NSKeyValueChangeReplacement) {
                 [self.tableView reloadRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
             }
@@ -128,7 +135,16 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //delete row from data source
         Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-        [[DataSource sharedInstance] deleteMediaItem:item];
+        [[DataSource sharedInstance] addMediaItemToTop:item];
+        
+        NSUInteger row = indexPath.row;
+        
+        [[DataSource sharedInstance] removeObjectFromMediaItemsAtIndex:row + 1];
+    
+        
+        
+        
+        //[[DataSource sharedInstance] deleteMediaItem:item];
     }
 }
 
