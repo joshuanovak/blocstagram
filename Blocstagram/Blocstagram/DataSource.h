@@ -14,11 +14,13 @@ typedef void (^NewItemCompletionBloc)(NSError *error);
 
 @interface DataSource : NSObject
 
-+(instancetype) sharedInstance;
++ (instancetype) sharedInstance;
++ (NSString *) instagramClientID;
 
 @property (nonatomic, strong, readonly) NSMutableArray *mediaItems;
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
+@property (nonatomic, strong, readonly) NSString *accessToken;
 
 - (void) deleteMediaItem:(Media *)item;
 - (void) removeObjectFromMediaItemsAtIndex:(NSUInteger)index;
