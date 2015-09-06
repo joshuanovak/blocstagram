@@ -12,4 +12,6 @@
 
 extern NSString *const LoginViewControllerDidGetAccessTokenNotification;
 
+- (IBAction)Back: (id)sender;
+
 @end

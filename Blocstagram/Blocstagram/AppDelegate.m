@@ -34,8 +34,9 @@
     
     self.window.rootViewController = navVC;
     
+    
+    
     //override point for customization after application launch
-    //self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

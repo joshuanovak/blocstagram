@@ -23,6 +23,8 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
     UIWebView *webView = [[UIWebView alloc] init];
     webView.delegate = self;
     
@@ -38,6 +40,10 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
     }
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStylePlain target:self action:@selector(Back:)];
+    self.navigationItem.leftBarButtonItem = backButton;
+    
 }
 
 - (void) viewWillLayoutSubviews {
@@ -83,6 +89,10 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         return NO;
     }
     return YES;
+}
+
+- (IBAction)Back: (id)sender {
+    [_webView goBack];
 }
 
 
