@@ -57,7 +57,7 @@
 
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBloc)completionHandler{
     self.thereAreNoMoreOlderMessages = NO;
-    
+
     if (self.isRefreshing == NO) {
         self.isRefreshing = YES;
         

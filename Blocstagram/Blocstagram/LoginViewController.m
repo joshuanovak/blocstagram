@@ -42,6 +42,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     }
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStylePlain target:self action:@selector(Back:)];
+    backButton.enabled = false;
     self.navigationItem.leftBarButtonItem = backButton;
     
 }
@@ -87,6 +88,13 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         [[NSNotificationCenter defaultCenter] postNotificationName:LoginViewControllerDidGetAccessTokenNotification object:accessToken];
         
         return NO;
+    } else if ([urlString hasPrefix:@"https://instagram.com/accounts/login/"]) {
+        self.navigationItem.leftBarButtonItem.enabled = false;
+
+    }
+    
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        self.navigationItem.leftBarButtonItem.enabled = true;
     }
     return YES;
 }
