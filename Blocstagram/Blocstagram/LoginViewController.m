@@ -12,6 +12,7 @@
 @interface LoginViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) UIWebView *webView;
+//+ (UIColor) instagramBlue;
 
 @end
 
@@ -22,8 +23,6 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
     
     UIWebView *webView = [[UIWebView alloc] init];
     webView.delegate = self;
@@ -41,7 +40,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         [self.webView loadRequest:request];
     }
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStylePlain target:self action:@selector(Back:)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style: UIBarButtonItemStylePlain target:self action:@selector(Back:)];
     backButton.enabled = false;
     self.navigationItem.leftBarButtonItem = backButton;
     
@@ -89,11 +88,13 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         
         return NO;
     } else if ([urlString hasPrefix:@"https://instagram.com/accounts/login/"]) {
+        self.navigationItem.leftBarButtonItem.title = @"";
         self.navigationItem.leftBarButtonItem.enabled = false;
-
+        self.navigationItem.leftBarButtonItem.tintColor = [self instagramBlue];
     }
     
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        self.navigationItem.leftBarButtonItem.title = @"Back";
         self.navigationItem.leftBarButtonItem.enabled = true;
     }
     return YES;
@@ -103,18 +104,9 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     [_webView goBack];
 }
 
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIColor *) instagramBlue {
+    return [UIColor colorWithRed:18.0f/255.0f green:86.0f/255.0f blue:136.0f/255.0f alpha:1.0f];
 }
-*/
+
 
 @end
