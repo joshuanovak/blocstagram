@@ -75,6 +75,7 @@
         //got a token; populate inital data
         [self populateDataWithParameters:nil completionHandler:nil];
     }];
+    self.hasAccessToken = true;
 }
 
 

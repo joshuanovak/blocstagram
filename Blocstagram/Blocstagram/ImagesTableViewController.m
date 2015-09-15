@@ -37,6 +37,11 @@
     [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
     
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
+    
+    
+    
+    //[self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents: ]
+    
 }
 
 

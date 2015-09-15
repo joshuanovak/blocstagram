@@ -18,7 +18,6 @@
         self.idNumber = commentDictionary[@"id"];
         self.text = commentDictionary[@"text"];
         self.from = [[User alloc] initWithDictionary:commentDictionary[@"from"]];
-        //how does this work ^^^
     }
     return self;
 }
