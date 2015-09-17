@@ -38,8 +38,12 @@
     
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     
-    //[self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents: ]
-    
+    if (UIApplicationDidBecomeActiveNotification) {
+        [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+            [self.refreshControl endRefreshing];
+        }];
+    }
+    //[self.refreshControl endRefreshing];
 }
 
 
