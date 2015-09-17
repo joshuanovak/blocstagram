@@ -12,8 +12,9 @@
 #import "User.h"
 #import "Comment.h"
 #import "MediaTableViewCell.h"
+#import "MediaFullScreenViewController.h"
 
-@interface ImagesTableViewController ()
+@interface ImagesTableViewController () <MediaTableViewCellDelegate>
 
 @end
 
@@ -140,6 +141,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
+    cell.delegate = self;
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     return cell;
 }
@@ -177,14 +179,36 @@
     return YES;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - MediaTableViewCellDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+    MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
+    
+    [self presentViewController:fullScreenVC animated:YES completion:nil];
 }
-*/
+
+- (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    if (cell.mediaItem.caption.length > 0) {
+        [itemsToShare addObject:cell.mediaItem.caption];
+    }
+    
+    if (cell.mediaItem.image) {
+        [itemsToShare addObject:cell.mediaItem.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+}
+
+
+
+
+
+
+
 
 @end
