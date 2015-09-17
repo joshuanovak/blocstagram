@@ -9,6 +9,7 @@
 #import "MediaFullScreenViewController.h"
 #import "Media.h"
 #import "MediaTableViewCell.h"
+//#import "ImagesTableViewController.m"
 
 @interface MediaFullScreenViewController () <UIScrollViewDelegate>
 
@@ -77,10 +78,12 @@
 }
 
 
-
-
 - (IBAction)shareButtonPressed:(id)sender {
-    
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    [itemsToShare addObject:self.media.image];
+        
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
     
 }
 
