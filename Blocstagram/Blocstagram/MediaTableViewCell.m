@@ -107,11 +107,6 @@ static NSParagraphStyle *paragraphStyleRight;
     return self;
 }
 
-//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
-//
-//    // Configure the view for the selected state
-//}
 
 #pragma mark - Image View
 
@@ -130,7 +125,6 @@ static NSParagraphStyle *paragraphStyleRight;
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return self.isEditing == NO;
 }
-
 
 
 + (void)load {

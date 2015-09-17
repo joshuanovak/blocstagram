@@ -8,12 +8,14 @@
 
 #import "MediaFullScreenViewController.h"
 #import "Media.h"
+#import "MediaTableViewCell.h"
 
 @interface MediaFullScreenViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) Media *media;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
 
 @end
 
@@ -54,6 +56,32 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+
+    self.buttonView = [UIImageView new];
+    [self.view addSubview:self.buttonView];
+    
+    [self addButtonToScrollView];
+}
+
+- (void) addButtonToScrollView {
+    
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    CGRect buttonFrame = CGRectMake(self.view.frame.size.width-80.0f, 20.0f, 80.0f, 40.0f);
+    
+    [shareButton setFrame:buttonFrame];
+    [shareButton addTarget:self action:@selector(shareButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    shareButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+    
+    [self.scrollView addSubview:shareButton];
+}
+
+
+
+
+- (IBAction)shareButtonPressed:(id)sender {
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
