@@ -224,6 +224,18 @@
     }
 }
 
+- (void) cellDidPressLikeButton:(MediaTableViewCell *)cell {
+    Media *item = cell.mediaItem;
+    
+    [[DataSource sharedInstance] toggleLikeOnMediaItem:item withCompletionHandler:^{
+        if (cell.mediaItem == item) {
+            cell.mediaItem = item;
+        }
+    }];
+    
+    cell.mediaItem = item;
+}
+
 - (void) cell:(MediaTableViewCell *)cell twoFingerPressed:(UIImageView *)imageView {
     [self.tableView beginUpdates];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:imageView, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
