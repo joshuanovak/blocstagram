@@ -128,7 +128,6 @@ static NSParagraphStyle *paragraphStyleRight;
 }
 
 - (void) twoFingerPressed: (UITapGestureRecognizer *)sender {
-    // Yes something goes here
     
     [self.delegate cell:self twoFingerPressed:self.mediaImageView];
     

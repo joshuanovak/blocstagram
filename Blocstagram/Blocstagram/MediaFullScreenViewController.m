@@ -58,8 +58,8 @@
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
 
-    self.buttonView = [UIImageView new];
-    [self.view addSubview:self.buttonView];
+//    self.buttonView = [UIImageView new];
+//    [self.view addSubview:self.buttonView];
     
     [self addButtonToScrollView];
 }
@@ -74,7 +74,7 @@
     [shareButton setTitle:@"Share" forState:UIControlStateNormal];
     shareButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
     
-    [self.scrollView addSubview:shareButton];
+    [self.view addSubview:shareButton];
 }
 
 
