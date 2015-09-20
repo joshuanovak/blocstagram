@@ -132,7 +132,12 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self scrollViewDidEndDragging:scrollView willDecelerate:NO];
     [self infiniteScrollIfNecessary];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    decelerate = YES;
 }
 
 #pragma mark - Table view data source
@@ -150,10 +155,14 @@
     return cell;
 }
 
+
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
-        [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+    
+    if (UIScrollViewDecelerationRateNormal || UIScrollViewDecelerationRateFast) {
+        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+            [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+        }
     }
 }
 
