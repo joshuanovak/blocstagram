@@ -256,7 +256,7 @@
                                             if (index != NSNotFound)
                                                 [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
                                         }
-                                        
+                                        NSLog(@"Downloaded %@",mediaItem.mediaURL.absoluteString);
                                         [self saveImages];
                                         
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -209,9 +209,11 @@
 }
 
 - (void) cell:(MediaTableViewCell *)cell twoFingerPressed:(UIImageView *)imageView {
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:imageView, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
+    cell.mediaItem.image = nil;
+    [[DataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+    
+    
+    
     NSLog(@"Two finger tapped");
 }
 

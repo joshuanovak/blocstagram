@@ -131,8 +131,6 @@ static NSParagraphStyle *paragraphStyleRight;
     
     [self.delegate cell:self twoFingerPressed:self.mediaImageView];
     
-    
-    
 }
 
 #pragma mark - UIGestureRecognizerDelegate
