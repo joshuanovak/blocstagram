@@ -137,7 +137,7 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    decelerate = YES;
+    //decelerate = YES;
 }
 
 #pragma mark - Table view data source
@@ -237,10 +237,8 @@
 }
 
 - (void) cell:(MediaTableViewCell *)cell twoFingerPressed:(UIImageView *)imageView {
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:imageView, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
-    NSLog(@"Two finger tapped");
+    cell.mediaItem.image = nil;
+    [[DataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
 }
 
 
