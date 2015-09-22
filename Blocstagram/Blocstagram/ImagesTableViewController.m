@@ -138,16 +138,8 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (decelerate == YES) {
-        // Start downloading images for cells
-        //same as double tap
-        
-        
-        
-    } else {
-        // Use placeholders
-        //Done by just having height of cell large enough
+        //[[DataSource sharedInstance] downloadImageForMediaItem:];
     }
-    
 }
 
 #pragma mark - Table view data source
@@ -235,17 +227,7 @@
 }
 
 - (void) cell:(MediaTableViewCell *)cell twoFingerPressed:(UIImageView *)imageView {
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:imageView, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
-    NSLog(@"Two finger tapped");
+    [[DataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
 }
-
-
-
-
-
-
-
 
 @end
