@@ -137,7 +137,17 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    decelerate = YES;
+    if (decelerate == YES) {
+        // Start downloading images for cells
+        //same as double tap
+        
+        
+        
+    } else {
+        // Use placeholders
+        //Done by just having height of cell large enough
+    }
+    
 }
 
 #pragma mark - Table view data source
