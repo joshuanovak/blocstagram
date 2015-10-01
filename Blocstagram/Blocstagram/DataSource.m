@@ -318,6 +318,7 @@
             }
         }];
     }else if (mediaItem.likeState == LikeStateLiked) {
+        
         mediaItem.likeState = LikeStateUnliking;
         
         [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
