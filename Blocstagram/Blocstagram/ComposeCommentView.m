@@ -60,7 +60,7 @@
         CGFloat buttonX = CGRectGetWidth(self.bounds) - CGRectGetWidth(self.button.frame) - 20;
         self.button.frame = CGRectMake(buttonX, 10, 80, 20);
     }else {
-        self.textView.backgroundColor = [UIColor colorWithRed:.0898 green:0.898 blue:0.898 alpha:1];
+        self.textView.backgroundColor = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1];
         self.button.backgroundColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1];
         
         self.button.frame = CGRectMake(10, 10, 80, 20);
@@ -72,6 +72,8 @@
     CGFloat blockX = CGRectGetWidth(self.textView.bounds) - buttonSize.width;
     CGRect areaToBlockText = CGRectMake(blockX, 0, buttonSize.width, buttonSize.height);
     UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRect:areaToBlockText];
+    
+    //[UIView animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion];
     
     self.textView.textContainer.exclusionPaths = @[buttonPath];
 }

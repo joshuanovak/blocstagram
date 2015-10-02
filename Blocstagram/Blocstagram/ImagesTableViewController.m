@@ -125,7 +125,7 @@
             
             //tell the table view what the changes are
             if (kindOfChange == NSKeyValueChangeInsertion) {
-                [self.tableView insertRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView insertRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationNone];
             }else if (kindOfChange == NSKeyValueChangeRemoval) {
                 [self.tableView deleteRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
             }else if (kindOfChange == NSKeyValueChangeReplacement) {
