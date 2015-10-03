@@ -25,6 +25,9 @@
         self.textView = [UITextView new];
         self.textView.delegate = self;
         
+        //[self.textView animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion];
+        
+        
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.button setAttributedTitle:[self commentAttributedString] forState:UIControlStateNormal];
         [self.button addTarget:self action:@selector(commentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -50,6 +53,19 @@
 
 - (void) layoutSubviews {
     [super layoutSubviews];
+    
+    
+    [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void){
+                         
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
+                                          animations:^{
+                                          } completion:^(BOOL finished) {}];
+                     }];
+
+    
     
     self.textView.frame = self.bounds;
     

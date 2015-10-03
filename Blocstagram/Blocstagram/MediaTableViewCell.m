@@ -78,6 +78,18 @@ static NSParagraphStyle *paragraphStyleRight;
         self.commentView = [[ComposeCommentView alloc] init];
         self.commentView.delegate = self;
         
+        [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^(void){
+                             self.commentView = [[ComposeCommentView alloc] init];
+                             self.commentView.delegate = self;
+                         }
+                         completion:^(BOOL finished) {
+                             [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
+                                              animations:^{
+                                              } completion:^(BOOL finished) {}];
+                         }];
+
+        
         for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton, self.commentView]){
             [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
