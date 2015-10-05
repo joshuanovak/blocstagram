@@ -39,7 +39,7 @@ static UIColor *firstCommentOrange;
 static UIColor *linkColor;
 static NSParagraphStyle *paragraphStyle;
 static NSParagraphStyle *paragraphStyleRight;
-
+static UIColor *clearColor;
 
 @implementation MediaTableViewCell
 
@@ -73,13 +73,16 @@ static NSParagraphStyle *paragraphStyleRight;
         
         self.likeButton = [[LikeButton alloc] init];
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
-        self.likeButton.backgroundColor = usernameLabelGray;
+        self.likeButton.backgroundColor = clearColor;
         
         self.likesLabel = [[UILabel alloc] init];
-        self.likesLabel.backgroundColor = usernameLabelGray;
+        self.likesLabel.backgroundColor = clearColor;
         self.likesLabel.font = lightFont;
-        
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel,self.likesLabel, self.likeButton]){
+        self.likesLabel.minimumScaleFactor = 0.5;
+        self.likesLabel.textAlignment = NSTextAlignmentCenter;
+
+        self.contentView.backgroundColor = usernameLabelGray;
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel,self.likeButton,self.likesLabel]){
             [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
@@ -87,11 +90,25 @@ static NSParagraphStyle *paragraphStyleRight;
         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likesLabel, _likeButton);
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likesLabel][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likesLabel][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop  metrics:nil views:viewDictionary]];
+//        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]-[_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop  metrics:nil views:viewDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_likesLabel][_likeButton(==38)]" options:NSLayoutFormatAlignAllCenterY  metrics:nil views:viewDictionary]];
+
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView][_usernameAndCaptionLabel][_commentLabel]" options:kNilOptions metrics:nil views:viewDictionary]];
+     ///   self.likesLabel.backgroundColor = [UIColor yellowColor];
+      //  self.likeButton.backgroundColor = [UIColor blueColor];
         
+/*
+        self.imageHeightConstraint = [NSLayoutConstraint constraintWithItem:_likesLabel
+                                                                  attribute:NSLayoutAttributeCenterY
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:_likeButton
+                                                                  attribute:NSLayoutAttributeCenterY
+                                                                 multiplier:1
+                                                                   constant:0];
+*/
         self.imageHeightConstraint = [NSLayoutConstraint constraintWithItem:_mediaImageView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
@@ -171,6 +188,7 @@ static NSParagraphStyle *paragraphStyleRight;
     commentLabelGray = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1];
     firstCommentOrange = [UIColor colorWithRed:.980 green:0.600 blue:0.212 alpha:1];
     linkColor = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1];
+    clearColor = [UIColor clearColor];
     
     NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc] init];
     mutableParagraphStyle.headIndent = 20.0;
