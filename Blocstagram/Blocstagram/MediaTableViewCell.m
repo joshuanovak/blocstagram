@@ -50,6 +50,7 @@ static NSParagraphStyle *paragraphStyleRight;
         self.mediaImageView = [[UIImageView alloc] init];
         self.mediaImageView.userInteractionEnabled = YES;
         
+        
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
         self.tapGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
@@ -77,18 +78,10 @@ static NSParagraphStyle *paragraphStyleRight;
         
         self.commentView = [[ComposeCommentView alloc] init];
         self.commentView.delegate = self;
+     //   self.commentView.backgroundColor = [UIColor blueColor];
         
-        [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionCurveEaseInOut
-                         animations:^(void){
-                             self.commentView = [[ComposeCommentView alloc] init];
-                             self.commentView.delegate = self;
-                         }
-                         completion:^(BOOL finished) {
-                             [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
-                                              animations:^{
-                                              } completion:^(BOOL finished) {}];
-                         }];
-
+      //  self.commentView.frame = CGRectMake(self.commentView.frame.origin.x, self.commentView.frame.origin.y, self.commentView.frame.size.width*2.0, self.commentView.frame.size.height);
+  
         
         for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton, self.commentView]){
             [self.contentView addSubview:view];
@@ -296,6 +289,18 @@ static NSParagraphStyle *paragraphStyleRight;
 
 - (void) commentViewDidPressCommentButton:(ComposeCommentView *)sender {
     [self.delegate cell:self didComposeComment:self.mediaItem.temporaryComment];
+    
+    [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void){
+                         self.commentView.backgroundColor = [UIColor redColor];
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
+                                          animations:^{
+                                              self.commentView.backgroundColor = commentLabelGray;
+                                          } completion:^(BOOL finished) {}];
+                     }];
+
 }
 
 - (void) commentView:(ComposeCommentView *)sender textDidChange:(NSString *)text {
@@ -304,6 +309,7 @@ static NSParagraphStyle *paragraphStyleRight;
 
 - (void) commentViewWillStartEditing:(ComposeCommentView *)sender {
     [self.delegate cellWillStratComposingComment:self];
+    
 }
 
 - (void) stopComposingComment {
