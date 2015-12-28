@@ -230,25 +230,29 @@
 
 
 // Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
     [self.items removeObject:[self.items objectAtIndex:fromIndexPath.row]]; //DELETION CODE DOES NOT WORK
 }
 
 // Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
 
 #pragma mark - MediaTableViewCellDelegate
 
-- (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+- (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView
+{
     MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
     
     [self presentViewController:fullScreenVC animated:YES completion:nil];
 }
 
-- (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
+- (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView
+{
     NSMutableArray *itemsToShare = [NSMutableArray array];
     
     if (cell.mediaItem.caption.length > 0) {
@@ -265,7 +269,8 @@
     }
 }
 
-- (void) cellDidPressLikeButton:(MediaTableViewCell *)cell {
+- (void) cellDidPressLikeButton:(MediaTableViewCell *)cell
+{
     Media *item = cell.mediaItem;
     
     [[DataSource sharedInstance] toggleLikeOnMediaItem:item withCompletionHandler:^{
@@ -277,22 +282,26 @@
     cell.mediaItem = item;
 }
 
-- (void) cell:(MediaTableViewCell *)cell twoFingerPressed:(UIImageView *)imageView {
+- (void) cell:(MediaTableViewCell *)cell twoFingerPressed:(UIImageView *)imageView
+{
     cell.mediaItem.image = nil;
     [[DataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
 }
 
-- (void) cellWillStratComposingComment:(MediaTableViewCell *)cell {
+- (void) cellWillStratComposingComment:(MediaTableViewCell *)cell
+{
     self.lastSelectedCommentView = (UIView *)cell.commentView;
 }
 
-- (void) cell:(MediaTableViewCell *)cell didComposeComment:(NSString *)comment {
+- (void) cell:(MediaTableViewCell *)cell didComposeComment:(NSString *)comment
+{
     [[DataSource sharedInstance] commentOnMediaItem:cell.mediaItem withCommentText:comment];
 }
 
 #pragma mark - Keyboard Handling
 
-- (void)keyboardWillShow:(NSNotification *)notification{
+- (void)keyboardWillShow:(NSNotification *)notification
+{
     //get frame of keyboadrd within self.view's cordinate system
     NSValue *frameValue = notification.userInfo[UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrameInScreenCordinates = frameValue.CGRectValue;
@@ -342,7 +351,8 @@
     self.lastKeyboardAdjustment = heightToScroll;
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification{
+- (void)keyboardWillHide:(NSNotification *)notification
+{
     UIEdgeInsets contentInsets = self.tableView.contentInset;
     contentInsets.bottom -= self.lastKeyboardAdjustment;
     
@@ -364,7 +374,8 @@
 
 #pragma mark - Camera, CameraViewControllerDelegate, and ImageLibraryViewControllerDelegate
 
-- (void) cameraPressed:(UIBarButtonItem *) sender {
+- (void) cameraPressed:(UIBarButtonItem *) sender
+{
     
     UIViewController *imageVC;
     
@@ -386,7 +397,8 @@
     return;
 }
 
-- (void) cameraViewController:(CameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image {
+- (void) cameraViewController:(CameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image
+{
     [cameraViewController dismissViewControllerAnimated:YES completion:^{
         if (image) {
             NSLog(@"Got an image!");
@@ -406,9 +418,6 @@
         }
     }];
 }
-
-
-
 
 @end
 

@@ -16,6 +16,9 @@
 @property (nonatomic, strong) CropBox *cropBox;
 @property (nonatomic, assign) BOOL hasLoadedOnce;
 
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
+
 @end
 
 @implementation CropImageViewController
@@ -34,6 +37,17 @@
     return self;
 }
 
+-(void) createViews {
+    self.topView = [UIToolbar new];
+    self.bottomView = [UIToolbar new];
+    UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+    self.topView.barTintColor = whiteBG;
+    self.bottomView.barTintColor = whiteBG;
+    self.topView.alpha = 0.5;
+    self.bottomView.alpha = 0.5;
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,6 +56,7 @@
     self.view.clipsToBounds = YES;
     
     [self.view addSubview:self.cropBox];
+    [self createViews];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Crop", @"Crop command") style:UIBarButtonItemStyleDone target:self action:@selector(cropPressed:)];
     
@@ -54,9 +69,33 @@
     
 }
 
+// Had started moving CameraViewControllers.m topView and bottomView over
+//  viewWillLayoutSubviews
+
+
 - (void) viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    
+    
+    
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    self.topView.frame = CGRectMake(0, self.topLayoutGuide.length, width, 44);
+    
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+    CGFloat heightOfBottomView = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
+    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
+    
+    self.cropBox.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width);
+    
+
+//    self.imageView.frame = self.view.bounds;
+//    self.captureVideoPreviewLayer.frame = self.imageView.bounds;
+//    
+//    CGFloat cameraToolbarHeight = 100;
+//    self.cameraToolbar.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - cameraToolbarHeight, width, cameraToolbarHeight);
+    
+    
     
     CGRect cropRect = CGRectZero;
     

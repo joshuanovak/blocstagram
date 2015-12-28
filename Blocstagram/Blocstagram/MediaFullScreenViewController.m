@@ -104,7 +104,7 @@
 //    CGFloat scaleWidth = scrollViewFrameSize.width / scrollViewContentSize.width;
 //    CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
 //    CGFloat minScale = MIN(scaleWidth, scaleHeight);
-    
+//    
 //    self.scrollView.minimumZoomScale = minScale;
 //    self.scrollView.maximumZoomScale = 1;
 }
