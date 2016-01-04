@@ -2,7 +2,7 @@
 //  PostToInstagramViewController.m
 //  Blocstagram
 //
-//  Created by Joshua on 12/28/15.
+//  Created by Joshua on 12/28/1d5.
 //  Copyright © 2015 Joshua Novak. All rights reserved.
 //
 
@@ -219,6 +219,40 @@
             }
             
             [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Drunk", @"Drunk Filter")];
+        }
+    }];
+    
+    //Dream Filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *dreamFilter = [CIFilter filterWithName:@"CICircularScreen"];
+        CIFilter *blurFilter = [CIFilter filterWithName:@"CIConvolution5X5"];
+        
+        if (dreamFilter) {
+            [dreamFilter setValue:sourceCIImage forKeyPath:kCIInputImageKey];
+            CIVector *dreamVector = [CIVector vectorWithString:@"[150 150"];
+            [dreamFilter setValue:dreamVector forKey:@"inputCenter"];
+            [dreamFilter setValue:@10.00 forKey:@"inputWidth"];
+            CIImage *result = dreamFilter.outputImage;
+            
+            if (blurFilter) {
+                [blurFilter setValue:result forKey:kCIInputImageKey];
+                CIVector *blurVector = [CIVector vectorWithString:@"[0.5 0 0 0 0 0 0 0 0 0.05 0 0 0 0 0 0 0 0 0 0 0.05 0 0 0 0.5]"];
+                [blurFilter setValue:blurVector forKeyPath:@"inputWeights"];
+                result = blurFilter.outputImage;
+            }
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Dream", @"Dream Filter")];
+        }
+    }];
+    
+    // Shaddow Killer
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *shaddowFilter = [CIFilter filterWithName:@"CIHighlightShadowAdjust"];
+        
+        if (shaddowFilter) {
+            [shaddowFilter setValue:sourceCIImage forKeyPath:kCIInputImageKey];
+            [self addCIImageToCollectionView:shaddowFilter.outputImage withFilterTitle:NSLocalizedString(@"Shaddow Killer", @"Shaddow Killer Filter")];
         }
     }];
     
