@@ -10,6 +10,7 @@
 		421957E01BAF31AB00640A96 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421957DF1BAF31AB00640A96 /* CircleSpinnerView.m */; };
 		421957E31BAF3BD900640A96 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 421957E21BAF3BD900640A96 /* LikeButton.m */; };
 		42439A7A1C24505300AB7727 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 42439A791C24505300AB7727 /* CropBox.m */; };
+		4269FE2C1C416847005077F8 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4269FE2B1C416847005077F8 /* UserTests.m */; };
 		4274A0A91C262F1200C1EEA2 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */; };
 		4274A0AC1C2638B100C1EEA2 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0AB1C2638B100C1EEA2 /* ImageLibraryViewController.m */; };
 		4274A0AF1C3185D900C1EEA2 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0AE1C3185D900C1EEA2 /* PostToInstagramViewController.m */; };
@@ -60,6 +61,7 @@
 		421957E21BAF3BD900640A96 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		42439A781C24505300AB7727 /* CropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropBox.h; sourceTree = "<group>"; };
 		42439A791C24505300AB7727 /* CropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropBox.m; sourceTree = "<group>"; };
+		4269FE2B1C416847005077F8 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		4274A0A71C262F1200C1EEA2 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
 		4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
 		4274A0AA1C2638B100C1EEA2 /* ImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLibraryViewController.h; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				4282E2301B81111F0042B95A /* BlocstagramTests.m */,
+				4269FE2B1C416847005077F8 /* UserTests.m */,
 				4282E22E1B81111F0042B95A /* Supporting Files */,
 			);
 			path = BlocstagramTests;
@@ -434,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4269FE2C1C416847005077F8 /* UserTests.m in Sources */,
 				4282E2311B81111F0042B95A /* BlocstagramTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
