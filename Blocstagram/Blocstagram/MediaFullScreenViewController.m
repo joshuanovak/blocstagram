@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
 
+@property (nonatomic, strong) UITapGestureRecognizer *borderDismiss;
+
 @end
 
 @implementation MediaFullScreenViewController
@@ -44,21 +46,34 @@
     self.imageView.image = self.media.image;
     
     [self.scrollView addSubview:self.imageView];
-    
     self.scrollView.contentSize = self.media.image.size;
+    
+    
+    //is something like this right??
+//    UIView *backgroundView = [[UIWindow alloc] initWithFrame:self.view.bounds];
+//    backgroundView.backgroundColor = [UIColor blackColor];
+//    backgroundView.opaque = NO;
+//    [self.view addSubview:backgroundView];
+//    
+//    self.borderDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
+//    self.borderDismiss.numberOfTapsRequired = 1;
+//    [backgroundView addGestureRecognizer:self.borderDismiss];
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
     
     self.doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapFired:)];
     self.doubleTap.numberOfTapsRequired = 2;
     
+    
     [self.tap requireGestureRecognizerToFail:self.doubleTap];
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    //[self.fullWindow addGestureRecognizer:self.borderDismiss];
 
     self.buttonView = [UIImageView new];
     [self.view addSubview:self.buttonView];
+    
     
     [self addButtonToScrollView];
 }
@@ -182,6 +197,10 @@
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
 }
+
+//- (void) tapFired: (UIGestureRecognizer *)sender{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 
 

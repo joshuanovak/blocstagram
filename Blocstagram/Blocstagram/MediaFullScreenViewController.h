@@ -13,6 +13,7 @@
 @interface MediaFullScreenViewController : UIViewController
 
 @property (nonatomic, strong) UIScrollView *scrollView;
+//@property (nonatomic, strong) UIView *fullWindow;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImageView *buttonView;
 
