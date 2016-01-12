@@ -7,12 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421957E01BAF31AB00640A96 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421957DF1BAF31AB00640A96 /* CircleSpinnerView.m */; };
+		421957E31BAF3BD900640A96 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 421957E21BAF3BD900640A96 /* LikeButton.m */; };
+		42439A7A1C24505300AB7727 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 42439A791C24505300AB7727 /* CropBox.m */; };
+		4274A0A91C262F1200C1EEA2 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */; };
+		4274A0AC1C2638B100C1EEA2 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0AB1C2638B100C1EEA2 /* ImageLibraryViewController.m */; };
+		428077251BB7018E00406644 /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428077241BB7018E00406644 /* ComposeCommentView.m */; };
+		428077281BC0385000406644 /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 428077271BC0385000406644 /* CameraToolbar.m */; };
+		4280772B1BC03DE900406644 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280772A1BC03DE900406644 /* CameraViewController.m */; };
+		4280772E1BC042E700406644 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280772D1BC042E700406644 /* UIImage+ImageUtilities.m */; };
 		4282E2171B81111F0042B95A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4282E2161B81111F0042B95A /* main.m */; };
 		4282E21A1B81111F0042B95A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4282E2191B81111F0042B95A /* AppDelegate.m */; };
-		4282E21D1B81111F0042B95A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4282E21C1B81111F0042B95A /* ViewController.m */; };
 		4282E2221B81111F0042B95A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4282E2211B81111F0042B95A /* Images.xcassets */; };
 		4282E2251B81111F0042B95A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4282E2231B81111F0042B95A /* LaunchScreen.xib */; };
 		4282E2311B81111F0042B95A /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4282E2301B81111F0042B95A /* BlocstagramTests.m */; };
+		4282E23D1B8115AD0042B95A /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4282E23C1B8115AD0042B95A /* ImagesTableViewController.m */; };
+		4299FE691B8626C100D0E297 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4299FE681B8626C100D0E297 /* User.m */; };
+		4299FE6C1B8627FD00D0E297 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 4299FE6B1B8627FD00D0E297 /* Media.m */; };
+		4299FE6F1B862A0400D0E297 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4299FE6E1B862A0400D0E297 /* Comment.m */; };
+		4299FE721B862C9200D0E297 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4299FE711B862C9200D0E297 /* DataSource.m */; };
+		4299FE7F1B868F5300D0E297 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE751B868F5300D0E297 /* 1.jpg */; };
+		4299FE801B868F5300D0E297 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE761B868F5300D0E297 /* 2.jpg */; };
+		4299FE811B868F5300D0E297 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE771B868F5300D0E297 /* 3.jpg */; };
+		4299FE821B868F5300D0E297 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE781B868F5300D0E297 /* 4.jpg */; };
+		4299FE831B868F5300D0E297 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE791B868F5300D0E297 /* 5.jpg */; };
+		4299FE841B868F5300D0E297 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE7A1B868F5300D0E297 /* 6.jpg */; };
+		4299FE851B868F5300D0E297 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE7B1B868F5300D0E297 /* 7.jpg */; };
+		4299FE861B868F5300D0E297 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE7C1B868F5300D0E297 /* 8.jpg */; };
+		4299FE871B868F5300D0E297 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE7D1B868F5300D0E297 /* 9.jpg */; };
+		4299FE881B868F5300D0E297 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4299FE7E1B868F5300D0E297 /* 10.jpg */; };
+		4299FE8B1B8BB05400D0E297 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4299FE8A1B8BB05400D0E297 /* MediaTableViewCell.m */; };
+		42BB7E871B98A7F90057E2E3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BB7E861B98A7F90057E2E3 /* LoginViewController.m */; };
+		42CC9B271BA84F6F007C7196 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC9B261BA84F6F007C7196 /* MediaFullScreenViewController.m */; };
+		99B3FE0AA7C6D83AEB8101BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7A6F3DD5BC0518A0539301 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,18 +53,63 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421957DE1BAF31AB00640A96 /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
+		421957DF1BAF31AB00640A96 /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
+		421957E11BAF3BD900640A96 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		421957E21BAF3BD900640A96 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		42439A781C24505300AB7727 /* CropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropBox.h; sourceTree = "<group>"; };
+		42439A791C24505300AB7727 /* CropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropBox.m; sourceTree = "<group>"; };
+		4274A0A71C262F1200C1EEA2 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
+		4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
+		4274A0AA1C2638B100C1EEA2 /* ImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLibraryViewController.h; sourceTree = "<group>"; };
+		4274A0AB1C2638B100C1EEA2 /* ImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryViewController.m; sourceTree = "<group>"; };
+		428077231BB7018E00406644 /* ComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeCommentView.h; sourceTree = "<group>"; };
+		428077241BB7018E00406644 /* ComposeCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentView.m; sourceTree = "<group>"; };
+		428077261BC0385000406644 /* CameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraToolbar.h; sourceTree = "<group>"; };
+		428077271BC0385000406644 /* CameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraToolbar.m; sourceTree = "<group>"; };
+		428077291BC03DE900406644 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		4280772A1BC03DE900406644 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		4280772C1BC042E700406644 /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
+		4280772D1BC042E700406644 /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
 		4282E2111B81111F0042B95A /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4282E2151B81111F0042B95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4282E2161B81111F0042B95A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4282E2181B81111F0042B95A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4282E2191B81111F0042B95A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4282E21B1B81111F0042B95A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4282E21C1B81111F0042B95A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4282E2211B81111F0042B95A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4282E2241B81111F0042B95A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4282E22A1B81111F0042B95A /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4282E22F1B81111F0042B95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4282E2301B81111F0042B95A /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
+		4282E23B1B8115AD0042B95A /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
+		4282E23C1B8115AD0042B95A /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
+		4299FE671B8626C100D0E297 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		4299FE681B8626C100D0E297 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		4299FE6A1B8627FD00D0E297 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		4299FE6B1B8627FD00D0E297 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		4299FE6D1B862A0400D0E297 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		4299FE6E1B862A0400D0E297 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		4299FE701B862C9200D0E297 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		4299FE711B862C9200D0E297 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		4299FE751B868F5300D0E297 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = "Blocstagram Images/1.jpg"; sourceTree = "<group>"; };
+		4299FE761B868F5300D0E297 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = "Blocstagram Images/2.jpg"; sourceTree = "<group>"; };
+		4299FE771B868F5300D0E297 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpg; path = "Blocstagram Images/3.jpg"; sourceTree = "<group>"; };
+		4299FE781B868F5300D0E297 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = "Blocstagram Images/4.jpg"; sourceTree = "<group>"; };
+		4299FE791B868F5300D0E297 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.jpg; path = "Blocstagram Images/5.jpg"; sourceTree = "<group>"; };
+		4299FE7A1B868F5300D0E297 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 6.jpg; path = "Blocstagram Images/6.jpg"; sourceTree = "<group>"; };
+		4299FE7B1B868F5300D0E297 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 7.jpg; path = "Blocstagram Images/7.jpg"; sourceTree = "<group>"; };
+		4299FE7C1B868F5300D0E297 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 8.jpg; path = "Blocstagram Images/8.jpg"; sourceTree = "<group>"; };
+		4299FE7D1B868F5300D0E297 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 9.jpg; path = "Blocstagram Images/9.jpg"; sourceTree = "<group>"; };
+		4299FE7E1B868F5300D0E297 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 10.jpg; path = "Blocstagram Images/10.jpg"; sourceTree = "<group>"; };
+		4299FE891B8BB05400D0E297 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		4299FE8A1B8BB05400D0E297 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
+		42BB7E851B98A7F90057E2E3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		42BB7E861B98A7F90057E2E3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		42CC9B251BA84F6F007C7196 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		42CC9B261BA84F6F007C7196 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
+		7E7A6F3DD5BC0518A0539301 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCEFBBEA9B54AE12A5095F80 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E6057D8C0A3BF586A5106146 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B3FE0AA7C6D83AEB8101BB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +131,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A7388678519045CDE717BD2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E7A6F3DD5BC0518A0539301 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4282E2081B81111F0042B95A = {
 			isa = PBXGroup;
 			children = (
 				4282E2131B81111F0042B95A /* Blocstagram */,
 				4282E22D1B81111F0042B95A /* BlocstagramTests */,
 				4282E2121B81111F0042B95A /* Products */,
+				4AD382A72285D27DCC638208 /* Pods */,
+				2A7388678519045CDE717BD2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +164,43 @@
 			children = (
 				4282E2181B81111F0042B95A /* AppDelegate.h */,
 				4282E2191B81111F0042B95A /* AppDelegate.m */,
-				4282E21B1B81111F0042B95A /* ViewController.h */,
-				4282E21C1B81111F0042B95A /* ViewController.m */,
-				4282E2211B81111F0042B95A /* Images.xcassets */,
+				4282E23B1B8115AD0042B95A /* ImagesTableViewController.h */,
+				4282E23C1B8115AD0042B95A /* ImagesTableViewController.m */,
+				42BB7E851B98A7F90057E2E3 /* LoginViewController.h */,
+				42BB7E861B98A7F90057E2E3 /* LoginViewController.m */,
+				4299FE891B8BB05400D0E297 /* MediaTableViewCell.h */,
+				4299FE8A1B8BB05400D0E297 /* MediaTableViewCell.m */,
+				42CC9B251BA84F6F007C7196 /* MediaFullScreenViewController.h */,
+				42CC9B261BA84F6F007C7196 /* MediaFullScreenViewController.m */,
+				4274A0A71C262F1200C1EEA2 /* CropImageViewController.h */,
+				4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */,
+				4274A0AA1C2638B100C1EEA2 /* ImageLibraryViewController.h */,
+				4274A0AB1C2638B100C1EEA2 /* ImageLibraryViewController.m */,
+				428077291BC03DE900406644 /* CameraViewController.h */,
+				4280772A1BC03DE900406644 /* CameraViewController.m */,
+				4280772C1BC042E700406644 /* UIImage+ImageUtilities.h */,
+				4280772D1BC042E700406644 /* UIImage+ImageUtilities.m */,
+				428077231BB7018E00406644 /* ComposeCommentView.h */,
+				428077241BB7018E00406644 /* ComposeCommentView.m */,
+				421957DE1BAF31AB00640A96 /* CircleSpinnerView.h */,
+				421957DF1BAF31AB00640A96 /* CircleSpinnerView.m */,
+				428077261BC0385000406644 /* CameraToolbar.h */,
+				428077271BC0385000406644 /* CameraToolbar.m */,
+				42439A781C24505300AB7727 /* CropBox.h */,
+				42439A791C24505300AB7727 /* CropBox.m */,
+				421957E11BAF3BD900640A96 /* LikeButton.h */,
+				421957E21BAF3BD900640A96 /* LikeButton.m */,
+				4299FE671B8626C100D0E297 /* User.h */,
+				4299FE681B8626C100D0E297 /* User.m */,
+				4299FE6A1B8627FD00D0E297 /* Media.h */,
+				4299FE6B1B8627FD00D0E297 /* Media.m */,
+				4299FE6D1B862A0400D0E297 /* Comment.h */,
+				4299FE6E1B862A0400D0E297 /* Comment.m */,
+				4299FE701B862C9200D0E297 /* DataSource.h */,
+				4299FE711B862C9200D0E297 /* DataSource.m */,
 				4282E2231B81111F0042B95A /* LaunchScreen.xib */,
+				4282E2211B81111F0042B95A /* Images.xcassets */,
+				4282E23A1B8113F20042B95A /* Images */,
 				4282E2141B81111F0042B95A /* Supporting Files */,
 			);
 			path = Blocstagram;
@@ -116,6 +232,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4282E23A1B8113F20042B95A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4299FE751B868F5300D0E297 /* 1.jpg */,
+				4299FE761B868F5300D0E297 /* 2.jpg */,
+				4299FE771B868F5300D0E297 /* 3.jpg */,
+				4299FE781B868F5300D0E297 /* 4.jpg */,
+				4299FE791B868F5300D0E297 /* 5.jpg */,
+				4299FE7A1B868F5300D0E297 /* 6.jpg */,
+				4299FE7B1B868F5300D0E297 /* 7.jpg */,
+				4299FE7C1B868F5300D0E297 /* 8.jpg */,
+				4299FE7D1B868F5300D0E297 /* 9.jpg */,
+				4299FE7E1B868F5300D0E297 /* 10.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		4AD382A72285D27DCC638208 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6057D8C0A3BF586A5106146 /* Pods.debug.xcconfig */,
+				DCEFBBEA9B54AE12A5095F80 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +265,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4282E2341B81111F0042B95A /* Build configuration list for PBXNativeTarget "Blocstagram" */;
 			buildPhases = (
+				66E77544AE41639934A8A332 /* Check Pods Manifest.lock */,
 				4282E20D1B81111F0042B95A /* Sources */,
 				4282E20E1B81111F0042B95A /* Frameworks */,
 				4282E20F1B81111F0042B95A /* Resources */,
+				E168D27BCCC509B461830CBA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,7 +304,7 @@
 		4282E2091B81111F0042B95A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Joshua Novak";
 				TargetAttributes = {
 					4282E2101B81111F0042B95A = {
@@ -196,6 +340,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4299FE881B868F5300D0E297 /* 10.jpg in Resources */,
+				4299FE861B868F5300D0E297 /* 8.jpg in Resources */,
+				4299FE841B868F5300D0E297 /* 6.jpg in Resources */,
+				4299FE831B868F5300D0E297 /* 5.jpg in Resources */,
+				4299FE821B868F5300D0E297 /* 4.jpg in Resources */,
+				4299FE7F1B868F5300D0E297 /* 1.jpg in Resources */,
+				4299FE801B868F5300D0E297 /* 2.jpg in Resources */,
+				4299FE811B868F5300D0E297 /* 3.jpg in Resources */,
+				4299FE851B868F5300D0E297 /* 7.jpg in Resources */,
+				4299FE871B868F5300D0E297 /* 9.jpg in Resources */,
 				4282E2251B81111F0042B95A /* LaunchScreen.xib in Resources */,
 				4282E2221B81111F0042B95A /* Images.xcassets in Resources */,
 			);
@@ -210,14 +364,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66E77544AE41639934A8A332 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E168D27BCCC509B461830CBA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4282E20D1B81111F0042B95A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4282E21D1B81111F0042B95A /* ViewController.m in Sources */,
+				4280772B1BC03DE900406644 /* CameraViewController.m in Sources */,
+				42CC9B271BA84F6F007C7196 /* MediaFullScreenViewController.m in Sources */,
+				421957E01BAF31AB00640A96 /* CircleSpinnerView.m in Sources */,
+				4299FE691B8626C100D0E297 /* User.m in Sources */,
+				4274A0AC1C2638B100C1EEA2 /* ImageLibraryViewController.m in Sources */,
+				42439A7A1C24505300AB7727 /* CropBox.m in Sources */,
+				4299FE6F1B862A0400D0E297 /* Comment.m in Sources */,
+				4274A0A91C262F1200C1EEA2 /* CropImageViewController.m in Sources */,
+				4299FE8B1B8BB05400D0E297 /* MediaTableViewCell.m in Sources */,
+				4299FE6C1B8627FD00D0E297 /* Media.m in Sources */,
+				428077281BC0385000406644 /* CameraToolbar.m in Sources */,
 				4282E21A1B81111F0042B95A /* AppDelegate.m in Sources */,
+				42BB7E871B98A7F90057E2E3 /* LoginViewController.m in Sources */,
+				421957E31BAF3BD900640A96 /* LikeButton.m in Sources */,
+				4299FE721B862C9200D0E297 /* DataSource.m in Sources */,
+				428077251BB7018E00406644 /* ComposeCommentView.m in Sources */,
 				4282E2171B81111F0042B95A /* main.m in Sources */,
+				4280772E1BC042E700406644 /* UIImage+ImageUtilities.m in Sources */,
+				4282E23D1B8115AD0042B95A /* ImagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +475,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -335,20 +539,24 @@
 		};
 		4282E2351B81111F0042B95A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6057D8C0A3BF586A5106146 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Blocstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		4282E2361B81111F0042B95A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCEFBBEA9B54AE12A5095F80 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Blocstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -367,6 +575,7 @@
 				);
 				INFOPLIST_FILE = BlocstagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blocstagram.app/Blocstagram";
 			};
@@ -382,6 +591,7 @@
 				);
 				INFOPLIST_FILE = BlocstagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blocstagram.app/Blocstagram";
 			};
@@ -406,6 +616,7 @@
 				4282E2361B81111F0042B95A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4282E2371B81111F0042B95A /* Build configuration list for PBXNativeTarget "BlocstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +625,7 @@
 				4282E2391B81111F0042B95A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
