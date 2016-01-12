@@ -128,14 +128,17 @@
 {
     CGSize scrollViewFrameSize = self.scrollView.frame.size;
     CGSize scrollViewContentSize = self.scrollView.contentSize;
-    
-    scrollViewContentSize.height /= self.scrollView.zoomScale;
-    scrollViewContentSize.width /= self.scrollView.zoomScale;
-    
+
     CGFloat scaleWidth = scrollViewFrameSize.width / scrollViewContentSize.width;
     CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
     CGFloat minScale = MIN(scaleWidth, scaleHeight);
+    self.scrollView.zoomScale = minScale;
     
+    scrollViewContentSize.height *= self.scrollView.zoomScale;
+    scrollViewContentSize.width *= self.scrollView.zoomScale;
+    
+    self.scrollView.contentSize = scrollViewContentSize;
+    self.scrollView.bounds = CGRectMake(self.scrollView.frame.origin.x,self.scrollView.frame.origin.y,scrollViewContentSize.width,scrollViewContentSize.height);
 }
 
 - (void) viewWillAppear:(BOOL)animated {
