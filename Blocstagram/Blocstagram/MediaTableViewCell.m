@@ -78,9 +78,32 @@ static NSParagraphStyle *paragraphStyleRight;
         
         self.commentView = [[ComposeCommentView alloc] init];
         self.commentView.delegate = self;
-     //   self.commentView.backgroundColor = [UIColor blueColor];
+        self.commentView.backgroundColor = [UIColor blueColor];
         
-      //  self.commentView.frame = CGRectMake(self.commentView.frame.origin.x, self.commentView.frame.origin.y, self.commentView.frame.size.width*2.0, self.commentView.frame.size.height);
+        //this is where we are animating
+        
+        //[UIView + animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:]
+        
+        [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:1.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                         
+                         }
+                         completion:^(BOOL finished) {
+                             self.commentLabel.backgroundColor = commentLabelGray;
+                             
+                         }];
+        
+//        [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionCurveEaseInOut
+//                                  animations:^(void){
+//                                      
+//                                      }
+//                                  completion:^(BOOL finished) {
+//                                          [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
+//                                                           animations:^{
+//                                                           } completion:^(BOOL finished) {}];
+//                                      }];
+        
+        self.commentView.frame = CGRectMake(self.commentView.frame.origin.x, self.commentView.frame.origin.y, self.commentView.frame.size.width*2.0, self.commentView.frame.size.height);
   
         
         for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton, self.commentView]){
@@ -315,10 +338,6 @@ static NSParagraphStyle *paragraphStyleRight;
 - (void) stopComposingComment {
     [self.commentView stopComposingComment];
 }
-
-
-
-
 
 @end
 
