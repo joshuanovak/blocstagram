@@ -65,15 +65,15 @@
 
 - (void) addButtonToScrollView {
     
-    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     CGRect buttonFrame = CGRectMake(self.view.frame.size.width-80.0f, 20.0f, 80.0f, 40.0f);
     
-    [shareButton setFrame:buttonFrame];
-    [shareButton addTarget:self action:@selector(shareButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [shareButton setTitle:@"Share" forState:UIControlStateNormal];
-    shareButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+    [self.shareButton setFrame:buttonFrame];
+    [self.shareButton addTarget:self action:@selector(shareButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    self.shareButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
     
-    [self.scrollView addSubview:shareButton];
+    [self.scrollView addSubview:self.shareButton];
 }
 
 
@@ -98,15 +98,6 @@
     
     [self recalculateZoomScale];
     
-//    CGSize scrollViewFrameSize = self.scrollView.frame.size;
-//    CGSize scrollViewContentSize = self.scrollView.contentSize;
-//    
-//    CGFloat scaleWidth = scrollViewFrameSize.width / scrollViewContentSize.width;
-//    CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
-//    CGFloat minScale = MIN(scaleWidth, scaleHeight);
-//    
-//    self.scrollView.minimumZoomScale = minScale;
-//    self.scrollView.maximumZoomScale = 1;
 }
 
 - (void) recalculateZoomScale
@@ -120,6 +111,9 @@
     CGFloat scaleWidth = scrollViewFrameSize.width / scrollViewContentSize.width;
     CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
     CGFloat minScale = MIN(scaleWidth, scaleHeight);
+    
+    self.scrollView.minimumZoomScale = minScale;
+    self.scrollView.maximumZoomScale = 1;
     
 }
 

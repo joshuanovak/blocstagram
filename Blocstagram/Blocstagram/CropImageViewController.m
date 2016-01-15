@@ -67,6 +67,8 @@
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
     
+    [self.shareButton removeFromSuperview];
+    
 }
 
 // Had started moving CameraViewControllers.m topView and bottomView over
@@ -88,15 +90,12 @@
     
     self.cropBox.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width);
     
-
 //    self.imageView.frame = self.view.bounds;
 //    self.captureVideoPreviewLayer.frame = self.imageView.bounds;
 //    
 //    CGFloat cameraToolbarHeight = 100;
 //    self.cameraToolbar.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - cameraToolbarHeight, width, cameraToolbarHeight);
-    
-    
-    
+   
     CGRect cropRect = CGRectZero;
     
     CGFloat edgeSize = MIN(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
