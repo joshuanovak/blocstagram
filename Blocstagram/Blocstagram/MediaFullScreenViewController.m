@@ -136,6 +136,9 @@
     CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
     CGFloat minScale = MIN(scaleWidth, scaleHeight);
     
+    self.scrollView.minimumZoomScale = minScale;
+    self.scrollView.maximumZoomScale = 1;
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
