@@ -164,7 +164,7 @@
 - (void) infiniteScrollIfNecessary {
     NSIndexPath *bottomIndexPath = [[self.tableView indexPathsForVisibleRows] lastObject];
     
-    if (bottomIndexPath && bottomIndexPath.row == [DataSource sharedInstance].mediaItems.count -1) {
+    if (bottomIndexPath && bottomIndexPath.row == [DataSource sharedInstance].mediaItems.count +1) {
         [[DataSource sharedInstance] requestOldItemsWithCompletionHandler:nil];
     }
 }
