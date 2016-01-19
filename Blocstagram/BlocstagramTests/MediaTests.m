@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Media.h"
-#import "Media.m"
+//#import "Media.m"
 #import "User.h"
 
 @interface MediaTests : XCTestCase
