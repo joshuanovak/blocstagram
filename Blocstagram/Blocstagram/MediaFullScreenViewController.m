@@ -48,16 +48,18 @@
     [self.scrollView addSubview:self.imageView];
     self.scrollView.contentSize = self.media.image.size;
     
+    /*
+    self.view.clipsToBounds = NO;
+    UIView *backgroundView = [[UIWindow alloc] initWithFrame:self.view.bounds];
+    backgroundView.backgroundColor = [UIColor blackColor];
+    backgroundView.opaque = NO;
+    [self.view addSubview:backgroundView];
+    */
     
-    //is something like this right??
-//    UIView *backgroundView = [[UIWindow alloc] initWithFrame:self.view.bounds];
-//    backgroundView.backgroundColor = [UIColor blackColor];
-//    backgroundView.opaque = NO;
-//    [self.view addSubview:backgroundView];
-//    
-//    self.borderDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
-//    self.borderDismiss.numberOfTapsRequired = 1;
-//    [backgroundView addGestureRecognizer:self.borderDismiss];
+    self.borderDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
+    self.borderDismiss.numberOfTapsRequired = 1;
+    self.borderDismiss.delegate = self;
+    [self.view.window addGestureRecognizer:self.borderDismiss];
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
     
