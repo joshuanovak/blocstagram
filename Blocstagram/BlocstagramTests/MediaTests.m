@@ -12,7 +12,7 @@
 #import "User.h"
 
 @interface MediaTests : XCTestCase
-
+//NSDictionary *user
 @end
 
 @implementation MediaTests
@@ -34,8 +34,9 @@
                                      @"id": @"3",
                                      @"profile_picture": @"http://www.pic.com"};
     
+    
     NSDictionary *mediaDictionary = @{@"type": @"image",
-                                      //@"users_in_photo": @"user",
+                                      @"user": user,
                                       @"caption": @"null",
                                       //@"comments": @"commentsDictionary"
                                       @"filter": @"waldon"};
@@ -44,7 +45,7 @@
     
     
     XCTAssertEqualObjects(testMedia.idNumber, mediaDictionary[@"id"], @"The ID number should be equal");
-    //XCTAssertEqualObjects(testMedia.user, mediaDictionary[@"user"], @"The user shoudld be equal");
+    XCTAssertEqualObjects(testMedia.user, mediaDictionary[@"user"], @"The user shoudld be equal");
     XCTAssertEqualObjects(testMedia.image, [NSURL URLWithString:mediaDictionary[@"image"]], @"The image should be equal");
     //How do we check the user dictionary or other dictionaries that are declared in the JSON?
     
