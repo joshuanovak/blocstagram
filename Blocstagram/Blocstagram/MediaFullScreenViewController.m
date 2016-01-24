@@ -16,8 +16,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
-
-@property (nonatomic, strong) UITapGestureRecognizer *borderDismiss;
+@property (nonatomic, strong) UITapGestureRecognizer *tapOutsideRecognizer;
 
 @end
 
@@ -48,19 +47,6 @@
     [self.scrollView addSubview:self.imageView];
     self.scrollView.contentSize = self.media.image.size;
     
-    /*
-    self.view.clipsToBounds = NO;
-    UIView *backgroundView = [[UIWindow alloc] initWithFrame:self.view.bounds];
-    backgroundView.backgroundColor = [UIColor blackColor];
-    backgroundView.opaque = NO;
-    [self.view addSubview:backgroundView];
-    */
-    
-    self.borderDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
-    self.borderDismiss.numberOfTapsRequired = 1;
-    self.borderDismiss.delegate = self;
-    [self.view.window addGestureRecognizer:self.borderDismiss];
-    
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
     
     self.doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapFired:)];
@@ -71,7 +57,6 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
-    //[self.fullWindow addGestureRecognizer:self.borderDismiss];
 
     self.buttonView = [UIImageView new];
     [self.view addSubview:self.buttonView];
@@ -79,6 +64,60 @@
     
     [self addButtonToScrollView];
 }
+
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (!self.tapOutsideRecognizer) {
+        self.tapOutsideRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapBehind:)];
+        self.tapOutsideRecognizer.numberOfTapsRequired = 1;
+        self.tapOutsideRecognizer.cancelsTouchesInView = NO;
+        self.tapOutsideRecognizer.delegate = self;
+        [self.view.window addGestureRecognizer:self.tapOutsideRecognizer];
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (self.tapOutsideRecognizer) {
+        [self.view.window removeGestureRecognizer:self.tapOutsideRecognizer];
+        self.tapOutsideRecognizer = nil;
+    }
+}
+
+#pragma mark - Actions
+
+- (IBAction)close:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)handleTapBehind:(UITapGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint location = [sender locationInView:nil]; //Passing nil gives us coordinates in the window
+        
+        //Then we convert the tap's location into the local view's coordinate system, and test to see if it's in or outside. If outside, dismiss the view.
+        
+        if (![self.view pointInside:[self.view convertPoint:location fromView:self.view.window] withEvent:nil])
+        {
+            // Remove the recognizer first so it's view.window is valid.
+            [self.view.window removeGestureRecognizer:sender];
+            [self close:sender];
+        }
+    }
+}
+
+#pragma mark - Gesture Recognizer
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    return YES;
+}
+
+
 
 - (void) addButtonToScrollView {
     
@@ -115,15 +154,15 @@
     
     [self recalculateZoomScale];
     
-//    CGSize scrollViewFrameSize = self.scrollView.frame.size;
-//    CGSize scrollViewContentSize = self.scrollView.contentSize;
-//    
-//    CGFloat scaleWidth = scrollViewFrameSize.width / scrollViewContentSize.width;
-//    CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
-//    CGFloat minScale = MIN(scaleWidth, scaleHeight);
-//    
-//    self.scrollView.minimumZoomScale = minScale;
-//    self.scrollView.maximumZoomScale = 1;
+    CGSize scrollViewFrameSize = self.scrollView.frame.size;
+    CGSize scrollViewContentSize = self.scrollView.contentSize;
+    
+    CGFloat scaleWidth = scrollViewFrameSize.width / scrollViewContentSize.width;
+    CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
+    CGFloat minScale = MIN(scaleWidth, scaleHeight);
+    
+    self.scrollView.minimumZoomScale = minScale;
+    self.scrollView.maximumZoomScale = 1;
 }
 
 - (void) recalculateZoomScale
