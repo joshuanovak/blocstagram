@@ -11,6 +11,7 @@
 		421957E31BAF3BD900640A96 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 421957E21BAF3BD900640A96 /* LikeButton.m */; };
 		42439A7A1C24505300AB7727 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 42439A791C24505300AB7727 /* CropBox.m */; };
 		426952621C5421C700BA835E /* CommentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 426952611C5421C700BA835E /* CommentTest.m */; };
+		426952671C544FE900BA835E /* MediaTableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 426952661C544FE900BA835E /* MediaTableTest.m */; };
 		4269FE2C1C416847005077F8 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4269FE2B1C416847005077F8 /* UserTests.m */; };
 		4274A0A91C262F1200C1EEA2 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */; };
 		4274A0AC1C2638B100C1EEA2 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0AB1C2638B100C1EEA2 /* ImageLibraryViewController.m */; };
@@ -64,6 +65,7 @@
 		42439A781C24505300AB7727 /* CropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropBox.h; sourceTree = "<group>"; };
 		42439A791C24505300AB7727 /* CropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropBox.m; sourceTree = "<group>"; };
 		426952611C5421C700BA835E /* CommentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTest.m; sourceTree = "<group>"; };
+		426952661C544FE900BA835E /* MediaTableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableTest.m; sourceTree = "<group>"; };
 		4269FE2B1C416847005077F8 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		4274A0A71C262F1200C1EEA2 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
 		4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				4269FE2B1C416847005077F8 /* UserTests.m */,
 				42D7E6291C4C28D300D6E963 /* MediaTests.m */,
 				426952611C5421C700BA835E /* CommentTest.m */,
+				426952661C544FE900BA835E /* MediaTableTest.m */,
 				4282E22E1B81111F0042B95A /* Supporting Files */,
 			);
 			path = BlocstagramTests;
@@ -445,6 +448,7 @@
 			files = (
 				42D7E62A1C4C28D300D6E963 /* MediaTests.m in Sources */,
 				4269FE2C1C416847005077F8 /* UserTests.m in Sources */,
+				426952671C544FE900BA835E /* MediaTableTest.m in Sources */,
 				4282E2311B81111F0042B95A /* BlocstagramTests.m in Sources */,
 				426952621C5421C700BA835E /* CommentTest.m in Sources */,
 			);

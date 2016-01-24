@@ -64,16 +64,6 @@ static NSDictionary *sampleUser = nil;
     
 }
 
-- (void) testComposeCommentView
-{
-    
-}
-
-- (void) testMediaTableViewHeight {
-    
-}
-
-
 
 @end
 

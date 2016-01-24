@@ -50,13 +50,6 @@
     XCTAssertEqualObjects(someComment.text, sourceDIctionary[@"text"], "The text should be equal");
 }
 
-- (void)testIsWriting
-{
-    BOOL *isWriting = YES;
-    
-}
-
-
 
 
 
