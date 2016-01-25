@@ -10,6 +10,9 @@
 
 @interface LibraryCollectionView : UICollectionViewCell
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UICollectionViewCell *)libraryCollectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (UICollectionViewCell *)layoutImageView:(UICollectionView *)collectionView
+
 
 @end

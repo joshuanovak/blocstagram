@@ -10,11 +10,11 @@
 
 @implementation LibraryCollectionView
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)libraryCollectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    collectionView = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    collectionView = [libraryCollectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
+    UIImageView *imageView = (UIImageView *)[self.contentView viewWithTag:imageView];
     
     if (!imageView) {
         imageView = [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
