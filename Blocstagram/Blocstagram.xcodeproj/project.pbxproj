@@ -10,6 +10,8 @@
 		421957E01BAF31AB00640A96 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421957DF1BAF31AB00640A96 /* CircleSpinnerView.m */; };
 		421957E31BAF3BD900640A96 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 421957E21BAF3BD900640A96 /* LikeButton.m */; };
 		42439A7A1C24505300AB7727 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 42439A791C24505300AB7727 /* CropBox.m */; };
+		4269526B1C567C7300BA835E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426952691C567C7300BA835E /* Fabric.framework */; };
+		4269526C1C567C7300BA835E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4269526A1C567C7300BA835E /* Crashlytics.framework */; };
 		4269FE2C1C416847005077F8 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4269FE2B1C416847005077F8 /* UserTests.m */; };
 		4274A0A91C262F1200C1EEA2 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */; };
 		4274A0AC1C2638B100C1EEA2 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4274A0AB1C2638B100C1EEA2 /* ImageLibraryViewController.m */; };
@@ -61,6 +63,8 @@
 		421957E21BAF3BD900640A96 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		42439A781C24505300AB7727 /* CropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropBox.h; sourceTree = "<group>"; };
 		42439A791C24505300AB7727 /* CropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropBox.m; sourceTree = "<group>"; };
+		426952691C567C7300BA835E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		4269526A1C567C7300BA835E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4269FE2B1C416847005077F8 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		4274A0A71C262F1200C1EEA2 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
 		4274A0A81C262F1200C1EEA2 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B3FE0AA7C6D83AEB8101BB /* libPods.a in Frameworks */,
+				4269526C1C567C7300BA835E /* Crashlytics.framework in Frameworks */,
+				4269526B1C567C7300BA835E /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +222,8 @@
 		4282E2141B81111F0042B95A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				426952691C567C7300BA835E /* Fabric.framework */,
+				4269526A1C567C7300BA835E /* Crashlytics.framework */,
 				4282E2151B81111F0042B95A /* Info.plist */,
 				4282E2161B81111F0042B95A /* main.m */,
 			);
@@ -278,6 +286,7 @@
 				4282E20E1B81111F0042B95A /* Frameworks */,
 				4282E20F1B81111F0042B95A /* Resources */,
 				E168D27BCCC509B461830CBA /* Copy Pods Resources */,
+				426952681C567C3100BA835E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -373,6 +382,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		426952681C567C3100BA835E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 73b61d9b86946b3137bd657a692d9af876caf9e8 af8cf8509bc14e86223ecf6d6dd389068e2c63455f0d2912778b2c49ce96d124";
+		};
 		66E77544AE41639934A8A332 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,6 +574,10 @@
 			baseConfigurationReference = E6057D8C0A3BF586A5106146 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Blocstagram",
+				);
 				INFOPLIST_FILE = Blocstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novak.$(PRODUCT_NAME:rfc1034identifier)";
@@ -564,6 +590,10 @@
 			baseConfigurationReference = DCEFBBEA9B54AE12A5095F80 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Blocstagram",
+				);
 				INFOPLIST_FILE = Blocstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novak.$(PRODUCT_NAME:rfc1034identifier)";

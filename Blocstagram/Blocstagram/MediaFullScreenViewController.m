@@ -9,6 +9,8 @@
 #import "MediaFullScreenViewController.h"
 #import "Media.h"
 #import "MediaTableViewCell.h"
+#import <Crashlytics/Crashlytics.h>
+
 //#import "ImagesTableViewController.m"
 
 @interface MediaFullScreenViewController () <UIScrollViewDelegate>
@@ -35,6 +37,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(20, 100, 100, 30);
+    [button setTitle:@"Crash" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(crashButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
     
     self.scrollView = [UIScrollView new];
     self.scrollView.delegate = self;
@@ -77,6 +85,11 @@
     
     [self addButtonToScrollView];
 }
+
+- (IBAction)crashButtonTapped:(id)sender {
+    [[Crashlytics sharedInstance] crash];
+}
+
 
 - (void) addButtonToScrollView {
     

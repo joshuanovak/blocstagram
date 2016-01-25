@@ -84,12 +84,13 @@
     if (indexPath) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
     }
+    
     [super viewWillAppear:animated];
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
     
+    [super viewWillDisappear:animated];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
