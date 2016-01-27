@@ -51,19 +51,6 @@
 - (void) layoutSubviews {
     [super layoutSubviews];
     
-    
-//    [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionCurveEaseInOut
-//                     animations:^(void){
-//                         
-//                     }
-//                     completion:^(BOOL finished) {
-//                         [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
-//                                          animations:^{
-//                                          } completion:^(BOOL finished) {}];
-//                     }];
-
-    
-    
     self.textView.frame = self.bounds;
     
     if (self.isWritingComment) {
