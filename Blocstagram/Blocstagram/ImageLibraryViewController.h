@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LibraryCollectionView.h"
+#import "LibraryCollectionViewCell.h"
 
 @class ImageLibraryViewController;
 
