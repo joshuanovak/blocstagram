@@ -38,12 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(20, 100, 100, 30);
-    [button setTitle:@"Crash" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(crashButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-    
     self.scrollView = [UIScrollView new];
     self.scrollView.delegate = self;
     self.scrollView.backgroundColor = [UIColor whiteColor];
@@ -84,10 +78,6 @@
     
     
     [self addButtonToScrollView];
-}
-
-- (IBAction)crashButtonTapped:(id)sender {
-    [[Crashlytics sharedInstance] crash];
 }
 
 

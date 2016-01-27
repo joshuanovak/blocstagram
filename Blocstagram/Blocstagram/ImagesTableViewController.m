@@ -46,7 +46,6 @@
     [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
     
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
-    
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] ||
@@ -70,7 +69,6 @@
             [self.refreshControl endRefreshing];
         }];
     }
-    
 }
 
 
@@ -193,8 +191,20 @@
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.delegate = self;
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
+    
+    
+    
+    //hey right here
+    //cell.hidden = YES;
     return cell;
 }
+
+//-(BOOL)prefersStatusBarHidden{
+//    return YES;
+//}
+
+
+
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     MediaTableViewCell *cell = (MediaTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
@@ -203,7 +213,6 @@
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    
     if (UIScrollViewDecelerationRateNormal || UIScrollViewDecelerationRateFast) {
         if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
             [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
@@ -213,7 +222,6 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    
     return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame) traitCollection:self.view.traitCollection];
 }
 
