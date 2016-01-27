@@ -69,9 +69,6 @@
     
 }
 
-// Had started moving CameraViewControllers.m topView and bottomView over
-//  viewWillLayoutSubviews
-
 
 - (void) viewWillLayoutSubviews
 {

@@ -50,17 +50,6 @@
     [self.scrollView addSubview:self.imageView];
     self.scrollView.contentSize = self.media.image.size;
     
-    
-    //is something like this right??
-//    UIView *backgroundView = [[UIWindow alloc] initWithFrame:self.view.bounds];
-//    backgroundView.backgroundColor = [UIColor blackColor];
-//    backgroundView.opaque = NO;
-//    [self.view addSubview:backgroundView];
-//    
-//    self.borderDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
-//    self.borderDismiss.numberOfTapsRequired = 1;
-//    [backgroundView addGestureRecognizer:self.borderDismiss];
-    
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
     
     self.doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapFired:)];
@@ -71,7 +60,6 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
-    //[self.fullWindow addGestureRecognizer:self.borderDismiss];
 
     self.buttonView = [UIImageView new];
     [self.view addSubview:self.buttonView];
@@ -116,15 +104,6 @@
     
     [self recalculateZoomScale];
     
-//    CGSize scrollViewFrameSize = self.scrollView.frame.size;
-//    CGSize scrollViewContentSize = self.scrollView.contentSize;
-//    
-//    CGFloat scaleWidth = scrollViewFrameSize.width / scrollViewContentSize.width;
-//    CGFloat scaleHeight = scrollViewFrameSize.height / scrollViewContentSize.height;
-//    CGFloat minScale = MIN(scaleWidth, scaleHeight);
-//    
-//    self.scrollView.minimumZoomScale = minScale;
-//    self.scrollView.maximumZoomScale = 1;
 }
 
 - (void) recalculateZoomScale
@@ -203,17 +182,6 @@
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
 }
-
-//- (void) tapFired: (UIGestureRecognizer *)sender{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-
-
-
-
-
-
 
 
 @end

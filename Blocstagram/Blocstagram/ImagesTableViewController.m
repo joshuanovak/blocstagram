@@ -192,18 +192,8 @@
     cell.delegate = self;
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     
-    
-    
-    //hey right here
-    //cell.hidden = YES;
     return cell;
 }
-
-//-(BOOL)prefersStatusBarHidden{
-//    return YES;
-//}
-
-
 
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
